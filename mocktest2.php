@@ -273,7 +273,7 @@ steps:
 
 <?php
 function longestSubstringWithoutRepeatingCharacters($str) {
-    $seen = new Set();
+    $seen = [];
     $s = 0;
     $maxLen = 0;
 
@@ -291,7 +291,7 @@ function longestSubstringWithoutRepeatingCharacters($str) {
 
 <script>
 const longestSubstringWithoutRepeatingCharacters = (str) => {
-    let seen = [];
+    let seen = new Set();
     let s = 0;
     let maxlen = 0;
 
