@@ -84,7 +84,7 @@ const firstUniqueWord = (str) => {
         map[word] = (map[word] || 0) + 1;
     }
 
-    for (let word of words) {
+    for (let word in map) {
         if (map[word] === 1) {
             return word;
         }
