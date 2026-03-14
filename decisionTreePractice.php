@@ -191,7 +191,6 @@ function longestWord($sentence)
 
 const longestWord = (sentence) => {
    let words = sentence.split(' ');
-   let n = sentence.length;
    let longest = [0];
 
    for (let word of words) {
@@ -313,7 +312,7 @@ function longestSubstringUniqueCharacters($str)
 const longestSubstringUniqueCharacters = (str) => {
    let seen = new Set();
    let s = 0;
-   let $maxLen = 0;
+   let maxLen = 0;
 
    for (let i = 0; i < str.length; i++) {
        while (seen.has(str[i])) {
@@ -375,7 +374,7 @@ function numberOfPairs($arr)
 {
     $totalPairs = 0;
 
-    for ($i = o; $i < count($arr); ++$i) {
+    for ($i = 0; $i < count($arr); ++$i) {
         for ($j = $i + 1; $j < count($arr); ++$j) {
             if ($arr[$i] === $arr[$j]) {
                 ++$totalPairs;
