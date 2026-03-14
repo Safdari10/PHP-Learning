@@ -1,28 +1,30 @@
 
-// Question 1: Counting -> frequency map
+// Question 1: Counting → frequency map
 // steps:
 // 1. function that takes a string sentence.
 // 2. split string into words.
 // 3. create map to hold word frequency.
 // 4. create a variable to set max frequency and a variable to hold the result.
 // 5. loop through the array, add each element to frequency.
-// 6. if the count of a word is greater then the max, add the word to the result.
+// 6. if the count of a word is greater than the max, add the word to the result.
 // 7. return result.
 
 <?php
-function mostFrequentWord($sentence) {
+function mostFrequentWord($sentence)
+{
     $words = preg_split('/\s+/', $sentence);
     $map = array_count_values($words);
     $max = 0;
     $result = null;
 
     foreach ($map as $value => $count) {
-           if ($count > $max) {
-           $max = $count;
-           $result = $value;
-           }
+        if ($count > $max) {
+            $max = $count;
+            $result = $value;
+        }
     }
-    return result;
+
+    return $result;
 }
 ?>
 <script>
@@ -30,9 +32,10 @@ function mostFrequentWord($sentence) {
 const mostFrequentWord = (sentence) => {
     let words = sentence.split(" ");
     let map = {};
+    let max = 0
     let result = null;
 
-    for (let word of Words) {
+    for (let word of words) {
          map[word] = (map[word] ?? 0) + 1;
 
          if (map[word] > max) {
@@ -53,18 +56,19 @@ const mostFrequentWord = (sentence) => {
 // 5. otherwise return false.
 
 <?php
-function isDuplicates($str) {
-   $seen = [];
-   $chars = preg_split('//u', $str);
+function isDuplicates($str): bool
+{
+    $seen = [];
+    $chars = preg_split('//u', $str);
 
-   foreach ($chars as $c) {
+    foreach ($chars as $c) {
         if (isset($seen[$c])) {
-           return true;
-        } else {
-           $seen[$c] = true;
+            return true;
         }
-   }
-   return false;
+        $seen[$c] = true;
+    }
+
+    return false;
 }
 ?>
 <script>
@@ -94,16 +98,16 @@ const isDuplicates = (str) => {
 // 6. result average.
 
 <?php
-function numsBiggerThanAverage($arr) {
+function numsBiggerThanAverage($arr): array
+{
     $n = count($arr);
     $result = [];
 
     if ($n > 0) {
-       $average = array_sum($arr) / $n;
-       $result = array_values(array_filter($arr, fn($num) => $num > $average));
-    } else {
-    $result = [];
+        $average = array_sum($arr) / $n;
+        $result = array_values(array_filter($arr, fn ($num) => $num > $average));
     }
+
     return $result;
 }
 ?>
@@ -116,8 +120,6 @@ const numsBiggerThanAverage = (arr) => {
     if (n > 0) {
        const average = arr.reduce((s, n) => s + n) / n;
        result = arr.filter(n => n > average);
-    } else {
-       result = [];
     }
     return result;
 }
@@ -131,16 +133,18 @@ const numsBiggerThanAverage = (arr) => {
 // 4. otherwise add number to seen, return null;
 
 <?php
-function firstDuplicate($arr) {
-  $seen = [];
+function firstDuplicate($arr)
+{
+    $seen = [];
 
-  foreach ($arr as $num) {
-     if (isset($seen[$num])) {
-         return $num;
+    foreach ($arr as $num) {
+        if (isset($seen[$num])) {
+            return $num;
         }
-     $seen[$num] = true;
-  }
-  return null;
+        $seen[$num] = true;
+    }
+
+    return null;
 }
 ?>
 <script>
@@ -161,24 +165,26 @@ const firstDuplicate = (arr) => {
 // Question 5: collect longest word -> array
 // steps:
 // 1. split the sentence into array of words.
-// 1. create a variable to hold longest word .
+// 1. create a variable to hold the longest word .
 // 2. loop through the array,
 // 3. loop through the array ignoring first element.
-// 4. if current j is bigger then i, longest = j,
+// 4. if current j is bigger than i, longest = j,
 // 5. return longest
 
 <?php
-function longestWord($sentence) {
-  $words = preg_split('/\s+/', $str);
-  $n = count($words);
-  $longest = '';
+function longestWord($sentence)
+{
+    $words = preg_split('/\s+/', $sentence);
+    $n = count($words);
+    $longest = '';
 
-  foreach ($words as $word) {
-     if (strlen($word) > strlen($longest)) {
-       $longest = $word;
-     }
-  }
-  return $longest;
+    foreach ($words as $word) {
+        if (strlen($word) > strlen($longest)) {
+            $longest = $word;
+        }
+    }
+
+    return $longest;
 }
 ?>
 <script>
@@ -206,25 +212,25 @@ const longestWord = (sentence) => {
 // 5. return false.
 
 <?php
-function equalToTarget($arr, $target) {
-  for ($i = 0; $i < count($arr); $i++) {
-      for ($j = $i + 1; $j < count($arr); $j++){
-         if ($arr[$i] + $arr[$j] === $target) {
-            return true;
-         }
-      }
-  }
-  return false;
+function equalToTarget($arr, $target): bool
+{
+    for ($i = 0; $i < count($arr); ++$i) {
+        for ($j = $i + 1; $j < count($arr); ++$j) {
+            if ($arr[$i] + $arr[$j] === $target) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 ?>
 <script>
-
-const equalToTarget = (arr, target) {
+const equalToTarget = (arr, target) => {
   for (let i = 0; i < arr.length; i++){
      for (let j = i + 1; j < arr.length; j++) {
-       if (arr[j] + arr[i]  === target) {
-            return true;
-       }
+       if (arr[j] + arr[i]  === target)
+           return true;
      }
   }
   return false;
@@ -241,16 +247,18 @@ const equalToTarget = (arr, target) {
 // 6 return result
 
 <?php
-function uniqueNumbers($arr) {
-  $map = array_count_values($arr);
-  $result = [];
+function uniqueNumbers($arr): array
+{
+    $map = array_count_values($arr);
+    $result = [];
 
-  foreach ($map as $value => $count) {
-       if ($count === 1) {
-        $result[] = $value;
-       }
-  }
-  return $result;
+    foreach ($map as $value => $count) {
+        if ($count === 1) {
+            $result[] = $value;
+        }
+    }
+
+    return $result;
 }
 ?>
 <script>
@@ -277,25 +285,27 @@ const uniqueNumbers = (arr) => {
 // 3. create variable to hold the longest substring
 // 4. loop through the string
 // 5. while a character already exists in the seen array, move the start to the next element,
-// 6. otherwise add character to seen.
+// 6. otherwise add character to the seen array.
 // 7. set the max substring.
 // 8. return substring.
 
 <?php
-function longestSubstringUniqueCharacters($str) {
-   $seen = [];
-   $s = 0;
-   $maxLen = 0;
+function longestSubstringUniqueCharacters($str)
+{
+    $seen = [];
+    $s = 0;
+    $maxLen = 0;
 
-   for ($i = 0; $i < strlen.($str); $i++) {
-       while (isset($seen[$str[$i]])) {
-           unset($seen[$str[$s]]);
-           $s++;
-       }
-       $seen[$str[$i]] = true;
-       $maxLen = max($maxLen, $i - $s + 1);
-   }
-   return $maxLen;
+    for ($i = 0; $i < strlen($str); ++$i) {
+        while (isset($seen[$str[$i]])) {
+            unset($seen[$str[$s]]);
+            ++$s;
+        }
+        $seen[$str[$i]] = true;
+        $maxLen = max($maxLen, $i - $s + 1);
+    }
+
+    return $maxLen;
 }
 ?>
 <script>
@@ -325,15 +335,17 @@ const longestSubstringUniqueCharacters = (str) => {
 // 4. add to sum, return sum.
 
 <?php
-function sumOfEven($arr) {
-  $sum = 0;
+function sumOfEven($arr)
+{
+    $sum = 0;
 
-  foreach ($arr as $num) {
-     if ($num % 2 === 0) {
-      $sum += $num;
-     }
-  }
-  return $sum;
+    foreach ($arr as $num) {
+        if ($num % 2 === 0) {
+            $sum += $num;
+        }
+    }
+
+    return $sum;
 }
 ?>
 <script>
@@ -359,17 +371,19 @@ const sumOfEven = (arr) => {
 // 5. return result
 
 <?php
-function numberOfPairs($arr) {
-  $totalPairs = 0;
+function numberOfPairs($arr)
+{
+    $totalPairs = 0;
 
-  for ($i = o; $i < count($arr); $i++) {
-    for ($j = $i + 1; $j < count($arr); $j++) {
-        if ($arr[$i] === $arr[$j]) {
-           $totalPairs++;
+    for ($i = o; $i < count($arr); ++$i) {
+        for ($j = $i + 1; $j < count($arr); ++$j) {
+            if ($arr[$i] === $arr[$j]) {
+                ++$totalPairs;
+            }
         }
     }
-  }
-  return $totalPairs;
+
+    return $totalPairs;
 }
 ?>
 <script>
