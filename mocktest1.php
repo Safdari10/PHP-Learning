@@ -1,4 +1,5 @@
 
+<?php
 function removeDuplicates($arr) {
 
   $seen = [];
@@ -13,14 +14,14 @@ function removeDuplicates($arr) {
 
   return $result;
 }
-
-
+?>
+<?php
 function countVowels($str) {
 
   $vowels = ['a','e','i','o','u'];
   $count = 0;
 
-  $cleaned = strtolower(preg_replace('/[^a-z]/', '', $str));
+  $cleaned = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $str));
 
   foreach ($vowels as $vowel) {
     $count += substr_count($cleaned, $vowel);
@@ -28,7 +29,8 @@ function countVowels($str) {
 
   return $count;
 }
-
+?>
+<?php
 class Rectangle {
   public $width;
   public $height;
@@ -48,6 +50,7 @@ class Rectangle {
 
 }
 
+?>
 
 SELECT c.id, c.name AS customer_name, COUNT(o.customer_id) AS order_count
 FROM Customers c
@@ -62,7 +65,7 @@ JOIN Orders o
 ON c.id = o.customer_id
 WHERE o.amount > 500
 
-
+<script>
 const largestNum = (arr) => {
 
   let largest = arr[0];
@@ -72,17 +75,12 @@ const largestNum = (arr) => {
       largest = arr[i];
     }
   }
-
   return largest;
 }
 
 const isPalindrome = (str) => {
-
-  let cleaned = str.replace(/\s+/g, '').toLowerCase();
-
-  const reversed = cleaned.split('').reverse().join('');
-
-  return cleaned === reversed;
+    const cleaned = str.toLowerCase().replace("/[^a-z0-9]/g", '');
+    return cleaned === cleaned.split('').reverse().join('')
 
 }
 
@@ -91,6 +89,8 @@ const wordCount = (sentence) => {
 
   let s = sentence.trim();
 
-  return s === '' ? 0 : s.split(/\s+/).length;
+  return s === '' ? 0 : s.split(' ').length;
 
 }
+
+</script>
