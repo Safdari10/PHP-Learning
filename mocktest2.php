@@ -106,19 +106,21 @@ steps:
 
 -->
 <?php
-function validParentheses($str) {
+function validParentheses(string $str): bool {
     $stack = [];
-    foreach($str as $char) {
+    // iterate characters
+    $chars = str_split($str);
+    foreach ($chars as $char) {
         if ($char === '(') {
-            array_push($stack, $char);
+            $stack[] = $char;
         } elseif ($char === ')') {
-            if (count($stack === 0)){
+            if (empty($stack)) {
                 return false;
             }
-            array_pop($stack, $char);
+            array_pop($stack);
         }
     }
-    return count($stack) === 0;
+    return empty($stack);
 }
 ?>
 
@@ -182,12 +184,12 @@ const findClosestSum = (arr, target) => {
     let closestPair = null;
 
     for (let i = 0; i < n; i++) {
-        for (let j = i + 1; J < n; j++) {
+        for (let j = i + 1; j < n; j++) {
             sum = arr[i] + arr[j];
 
             if (sum === target) {
                 return [arr[i] + arr[j]];
-            } if (closestSum === null || abs(target - sum) < abs(target - closestSum)) {
+            } if (closestSum === null || Math.abs(target - sum) < Math.abs(target - closestSum)) {
                 closestSum = sum;
                 closestPair = [arr[i], arr[j]];
             }
