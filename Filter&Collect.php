@@ -114,11 +114,11 @@ function evenNumbers($arr) {
 
 // 5.
 <?php
-function numbersBetweenValues($arr, $value1, $value2) {
+function numbersBetweenValues($arr, $min, $max) {
     $result = [];
 
     foreach ($arr as $num) {
-        if ($num > $value1 && $num < $value2) {
+        if ($num > $min && $num < $max) {
             $result[] = $num;
         }
     }
@@ -130,7 +130,10 @@ function numbersBetweenValues($arr, $value1, $value2) {
         let result = [];
 
         for (let num of arr) {
-            if (num > min )
+            if (num > min && num < max ) {
+                result.push(num);
+            }
         }
+        return result;
     }
 </script>
