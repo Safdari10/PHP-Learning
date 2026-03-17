@@ -31,7 +31,7 @@ function maxSumSubarray($arr, $k) {
 
         let maxSum = currentSum;
         for(let i = k; i < arr.length; i++) {
-            currentSum = arr[i] - arr[i - k];
+            currentSum += arr[i] - arr[i - k];
 
             if (currentSum > maxSum) maxSum = currentSum;
         }
@@ -43,6 +43,7 @@ function maxSumSubarray($arr, $k) {
 <?php
 function longestWord($str) {
     $words = preg_split('/\s+/', $str);
+    if (empty($words)) return null;
     $longest = $words[0];
 
     foreach($words as $word) {
@@ -56,6 +57,7 @@ function longestWord($str) {
 <script>
     const longestWord = (sentence) => {
         let words = sentence.split (" ").filter(Boolean);
+        if (words.length === 0) return null;
         let longest = words[0];
 
         for (let word of words) {
@@ -114,8 +116,8 @@ function minSubarraySumToTarget($arr, $target) {
          $sum += $arr[$i];
 
          while ($sum >= $target) {
-             $sum -= $arr[$s];
              $minLen = min($minLen, $i - $s+ 1);
+             $sum -= $arr[$s];
              $s++;
 
          }
@@ -133,8 +135,8 @@ function minSubarraySumToTarget($arr, $target) {
             sum += arr[i];
 
             while (sum >= target) {
-                sum -= arr[s];
                 minLen = Math.min(minLen, i - s + 1);
+                sum -= arr[s];
                 s++;
             }
         }
