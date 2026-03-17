@@ -41,7 +41,7 @@ function mostFrequentNum($arr) {
 <?php
 function countEachChar($str): array {
 
-    return array_count_values(preg_split('//u', $str));
+    return array_count_values(preg_split('//u', $str, -1, PREG_SPLIT_NO_EMPTY));
 }
 ?>
 <script>
@@ -57,11 +57,12 @@ function countEachChar($str): array {
 // 3.
 <?php
 function firstUniqueChar($str) {
-    $map = array_count_values(preg_split('//u', $str));
+    $chars = str_split($str);
+    $map = array_count_values($chars);
 
-    foreach ($map as $num => $count) {
-        if ($count === 1) {
-            return $num;
+    foreach ($chars as $c) {
+        if ($map[$c] === 1) {
+            return $c;
         }
     }
     return null;
@@ -75,8 +76,8 @@ function firstUniqueChar($str) {
             map.set(c, (map.get(c) ?? 0) + 1);
         }
 
-        for (let [c, count] of map) {
-            if (count === 1) {
+        for (let c of str) {
+            if (map.get(c) === 1) {
                 return c;
             }
         }
@@ -89,7 +90,7 @@ function firstUniqueChar($str) {
 function areAnagrams($a, $b): bool
 {
     $mapA = array_count_values(preg_split("//u", $a, -1, PREG_SPLIT_NO_EMPTY));
-    $mapB = array_count_values(preg_split("//u", $b. -1, PREG_SPLIT_NO_EMPTY));
+    $mapB = array_count_values(preg_split("//u", $b -1, PREG_SPLIT_NO_EMPTY));
 
     return $mapA === $mapB;
 }
@@ -109,10 +110,10 @@ function isAnagram($a, $b): bool {
         }
 
         for (let c of b) {
-            if (!map.get[c] ) return false;
-            map.set(c, (map.get(c) ?? 0) - 1)
+            if (!map.get(c) ) return false;
+            map.set(c, (map.get(c) - 1)
         }
-        return false;
+        return true;
 
     }
 
@@ -120,7 +121,7 @@ function isAnagram($a, $b): bool {
     const isAnagram = (a, b) => {
         if (a.length !== b.length) return false;
         return a.split('').sort().join('') ===
-            b.split().sort().join('');
+            b.split('').sort().join('');
     }
 </script>
 
