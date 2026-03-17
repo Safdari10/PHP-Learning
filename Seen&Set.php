@@ -113,7 +113,7 @@ function isAllCharUnique($str): bool {
 
 // shorter
 function isAllChar($str): bool {
-   $char = str_split($str);
+   $char = str_split(strtolower($str));
    return count($char) === count(array_unique($char));
 }
 ?>
