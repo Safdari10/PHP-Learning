@@ -2,7 +2,8 @@
 
 // 1.
 <?php
-function negativeNumbers($arr) {
+function negativeNumbers($arr): array
+{
     $result = [];
 
     foreach ($arr as $num) {
@@ -28,7 +29,8 @@ function negativeNumbers($arr) {
 
 // 2.
 <?php
-function numsGreaterThanAverage($arr) {
+function numsGreaterThanAverage($arr): array
+{
     $result = [];
     $sum = array_sum($arr);
     $average = $sum / count($arr);
@@ -62,7 +64,8 @@ function numsGreaterThanAverage($arr) {
 
 // 3.
 <?php
-function wordsLongerThan5($arr) {
+function wordsLongerThan5($arr): array
+{
     $result = [];
 
     foreach ($arr as $word) {
@@ -88,7 +91,8 @@ function wordsLongerThan5($arr) {
 
 // 4.
 <?php
-function evenNumbers($arr) {
+function evenNumbers($arr): array
+{
     $result = [];
 
     foreach ($arr as $num) {
@@ -114,7 +118,8 @@ function evenNumbers($arr) {
 
 // 5.
 <?php
-function numbersBetweenValues($arr, $min, $max) {
+function numbersBetweenValues($arr, $min, $max): array
+{
     $result = [];
 
     foreach ($arr as $num) {
