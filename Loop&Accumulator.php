@@ -7,7 +7,7 @@ function sumOddNumbers($arr) {
 
     foreach ($arr as $num) {
         if ($num % 2 !== 0) {
-            $sum += $sum;
+            $sum += $num;
         }
     }
     return $sum;
@@ -29,22 +29,23 @@ function sumOddNumbers($arr) {
 // 2.
 <?php
 function largestEvenNum($arr) {
-    $largest = $arr[0];
+    $largest = null;
 
     foreach ($arr as $num) {
-        if ($num > $largest) {
+        if ($num % 2 === 0 && ($largest === null || $num > $largest)) {
             $largest = $num;
         }
     }
+
     return $largest;
 }
 ?>
 <script>
     const largestEvenNumber = (arr) => {
-        let largest = arr[0];
+        let largest = null;
 
         for (let num of arr) {
-            if (num > largest){
+            if (num % 2 === 0 && (largest === null || num > largest)) {
                 largest = num;
             }
         }
@@ -56,29 +57,29 @@ function largestEvenNum($arr) {
 <?php
 function averagePositiveNumber($arr) {
     $sum = 0;
-    $positiveNumbers = [];
+    $count = 0;
 
     foreach ($arr as $num) {
-        if ($num % 2 === 0) {
+        if ($num > 0) {
             $sum += $num;
-            $positiveNumbers[] = $num;
+            $count++;
         }
     }
-    return $sum / count($positiveNumbers);
+    return $count === 0 ? 0 : $sum / $count;
 }
 ?>
 <script>
     const averagePositiveNumber = (arr) => {
         let sum = 0;
-        let positiveNumbers = [];
+        let count = 0;
 
         for (let num of arr) {
-            if (num % 2 === 0) {
+            if (num > 0) {
                 sum += num;
-                positiveNumbers[] = num;
+                count++;
             }
         }
-        return sum / positiveNumbers.length;
+        return count === 0 ? 0 : sum / count;
     }
 </script>
 
@@ -111,20 +112,20 @@ function numbersDiv3($arr) {
 // 5
 <?php
 function productNumbers($arr) {
-    $product = PHP_INT_MAX;
+    $product = 1;
 
     foreach ($arr as $num) {
-        $product += $product * $num;
+        $product *= $num;
     }
     return $product;
 }
 ?>
 <script>
     const productNumbers = (arr) => {
-        let product = Number.POSITIVE_INFINITY;
+        let product = 1;
 
         for (let num of arr) {
-            product += product * num;
+            product *=  num;
         }
         return product;
     }
