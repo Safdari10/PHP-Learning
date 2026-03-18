@@ -20,11 +20,16 @@ function factorial($n): int
 </script>
 
 <?php
-function factorial2($n) {
+function factorial2($n): int
+{
+    $result = 1;
     if ($n === 0 || $n === 1 ) {
         return 1;
     }
-    return  $n * factorial($n - 1);
+    for ($i = 1; $i <= $n; $i++) {
+        $result *= $i;
+    }
+    return $result;
 }
 ?>
 <script>
@@ -169,5 +174,18 @@ function sum($n) {
     const sum = (n) => {
         if (n <= 1) return n;
         return n + sum(n - 1);
+    }
+</script>
+
+<?php
+function factorialHard($n) {
+    if ($n <= 1) return 1;
+    return $n * factorialHard($n - 1);
+}
+?>
+<script>
+    const factorialHard = (n) => {
+        if (n <= 1) return 1;
+        return n * factorialHard(n - 1);
     }
 </script>
