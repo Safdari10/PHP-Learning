@@ -34,9 +34,14 @@ function fl(n) {
     if (n <= 1) return 1;
     return n * fl(n - 1);
 }
+
+function countDigits(n) {
+    if (n < 10 ) return 1;
+    return 1 + countDigits(Math.floor(n / 10));
+}
+
 function digitsInFactorial(n) {
-    if (Math.abs(fl(n)) < 10) return 1
-    return 1 + digitsInFactorial(Math.floor(fl(n) / 10));
+    return countDigits(fl(n))
 }
 
 // Q6
