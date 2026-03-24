@@ -63,6 +63,13 @@ const reverseFactorial = (n) => {
     return i;
 }
 
+// should use recursion as the question asked for recursion version
+function reversedfactorial(n, i = 1) {
+    if (n === 1) return i;
+    if (n % i !== 0) return -1;
+    return reversedfactorial(n / i, i + 1);
+}
+
 // Q8
 const modifiedFibonacci = (n) => {
     if (n === 0) return 2;
