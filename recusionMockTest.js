@@ -77,3 +77,14 @@ const modifiedFibonacci = (n) => {
     return modifiedFibonacci(n - 1) + modifiedFibonacci(n - 2);
 }
 
+// Q9
+const nthTriangularNumber = (n) => {
+    if (n <= 1) return n;
+    return n + nthTriangularNumber(n - 1);
+}
+
+// Q10
+const nthTerm = (n) => {
+    if (n <= 1) return 1;
+    return n * nthTerm(n - 1) + 1;
+}
