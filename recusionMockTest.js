@@ -19,13 +19,14 @@ function fibonacci(n) {
 }
 
 // Q4
-const fact = (n) => {
-    if (n <= 1) return 1;
-    return n * fact(n - 1);
+const fib = (n) => {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return fib(n - 1) + fib(n - 2);
 }
 function fibonacciSum(n) {
     if (n <= 1) return n;
-    return fact(n) + fibonacciSum(n-1)
+    return fib(n) + fibonacciSum(n-1)
 }
 
 // Q5
