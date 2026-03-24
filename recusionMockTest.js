@@ -44,16 +44,12 @@ function digitsInFactorial(n) {
     return countDigits(fl(n))
 }
 
-// Q6
-// so another stupid formula that is otherwise useless, I have to remember here, 5n^2 + 4 | 5n^2 - 4 is perfect square for a number to be fibonacci number.
-// perfect square is if a numbers square root is perfect number.
-function isFibonacciNumber(n) {
-    const isPerfectSquare = x => Number.isInteger(Math.sqrt(x))
-    return isPerfectSquare(5 * n * n + 4) || isPerfectSquare(5 * n * n -4);
+// Q6 don't need to use the stupid formula - just count sequence
+function isFibonacciNumber(n, a = 0, b = 1){
+    if (a === n) return true;
+    if (a > n) return false;
+    return isFibonacciNumber(n, b, a+b)
 }
-// what makes it worse is it is different for example in php to get check if number is a perfect square
-// $isPerfectSquare = fn(x) { $s = (int)sqrt(x) return s * s ==== x
-// probably will forget when time comes to do actual test.
 
 // Q7
 const reverseFactorial = (n) => {
