@@ -77,3 +77,12 @@ const sumDigits = (n) => {
     return (n % 10) + sumDigits(Math.floor(n / 10))
 }
 
+// Q12
+const reverseDigitsHelper = (n, rev = 0) => {
+    if (n === 0) return rev;
+    return reverseDigitsHelper(n / 10, rev * 10 + n % 10);
+}
+function reverseDigits(n) {
+    n = Math.abs(n);
+    return reverseDigitsHelper(n)
+}
