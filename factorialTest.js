@@ -101,8 +101,8 @@ const fib1 = (n) => {
     return fib1(n - 1) + fib1(n - 2);
 }
 const FibonacciSum = (n) => {
-    n = Math.abs(n);
-    return fib(n) + fibonacciSum(n - 1);
+    if (n === 0) return 0
+    return fib1(n) + fibonacciSum(n - 1);
 }
 
 // Q15
