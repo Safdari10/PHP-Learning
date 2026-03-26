@@ -121,3 +121,10 @@ const isFactorial = (n, i = 2) => {
     if (n % 2 !== 0 || n === 0) return false;
     return isFactorial(n / i, i + 1)
 }
+
+// Q17
+const reverseFactorial = (n, i = 1) => {
+    if (n === 1) return i;
+    if (n % i !== 0) return -1;
+    return reverseFactorial(n / i, i + 1);
+}
