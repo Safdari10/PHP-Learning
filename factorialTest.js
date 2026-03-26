@@ -114,3 +114,10 @@ const factorialSum = (n) => {
     n = Math.abs(n);
     return fact(n) + factorialSum(n - 1);
 }
+
+// Q16
+const isFactorial = (n, i = 2) => {
+    if (n === 1 ) return true;
+    if (n % 2 !== 0 || n === 0) return false;
+    return isFactorial(n / i, i + 1)
+}
