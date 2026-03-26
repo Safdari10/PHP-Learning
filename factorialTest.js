@@ -26,9 +26,9 @@ const sumOfNumbers = (n) => {
 const sumEvenNumbers = (n) => {
     if (n <= 1) return 0;
     if (n % 2 === 0) {
-        return n + sumOfNumbers(n - 2);
+        return n + sumEvenNumbers(n - 2);
     } else {
-        return sumOfNumbers(n - 1);
+        return sumEvenNumbers(n - 1);
     }
 }
 
