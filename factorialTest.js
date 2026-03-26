@@ -123,7 +123,7 @@ const isFactorial = (n, i = 2) => {
 }
 
 // Q17
-const reverseFactorial = (n, i = 1) => {
+const reverseFactorial = (n, i = 2) => {
     if (n === 1) return i;
     if (n % i !== 0) return -1;
     return reverseFactorial(n / i, i + 1);
@@ -132,7 +132,7 @@ const reverseFactorial = (n, i = 1) => {
 // Q18
 const countDownString = (n) => {
     if (n <= 1) return n;
-    return n + "" + countDownString(n - 1);
+    return n + " " + countDownString(n - 1);
 }
 
 // Q19
