@@ -111,7 +111,7 @@ const fact = (n) => {
     return n * fact(n - 1);
 }
 const factorialSum = (n) => {
-    n = Math.abs(n);
+    if (n === 1) return 1;
     return fact(n) + factorialSum(n - 1);
 }
 
