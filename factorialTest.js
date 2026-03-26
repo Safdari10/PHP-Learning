@@ -138,7 +138,7 @@ const countDownString = (n) => {
 // Q19
 const productRange = (x, n) => {
     if (x === n) return n;
-    return x * productRange(x + 1)
+    return x * productRange(x + 1, n)
 }
 
 // Q20
