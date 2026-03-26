@@ -128,3 +128,22 @@ const reverseFactorial = (n, i = 1) => {
     if (n % i !== 0) return -1;
     return reverseFactorial(n / i, i + 1);
 }
+
+// Q18
+const countDownString = (n) => {
+    if (n <= 1) return n;
+    return n + "" + countDownString(n - 1);
+}
+
+// Q19
+const productRange = (x, n) => {
+    if (x === n) return n;
+    return x * productRange(x + 1)
+}
+
+// Q20
+const customRecurrence = (n) => {
+    if (n === 0) return 0;
+    if (n === 1) return 2;
+    return n * customRecurrence(n - 1) + n;
+}
