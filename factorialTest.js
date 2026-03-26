@@ -80,7 +80,7 @@ const sumDigits = (n) => {
 // Q12
 const reverseDigitsHelper = (n, rev = 0) => {
     if (n === 0) return rev;
-    return reverseDigitsHelper(n / 10, rev * 10 + n % 10);
+    return reverseDigitsHelper(Math.floor(n / 10), rev * 10 + n % 10);
 }
 function reverseDigits(n) {
     n = Math.abs(n);
