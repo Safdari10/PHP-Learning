@@ -38,7 +38,7 @@ const sumOddNumbers = (n) => {
     if (n % 2 !== 0) {
         return n + sumOddNumbers(n - 2);
     } else {
-        return sumOfNumbers(n - 1);
+        return sumOddNumbers(n - 1);
     }
 }
 
