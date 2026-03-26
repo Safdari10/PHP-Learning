@@ -86,3 +86,21 @@ function reverseDigits(n) {
     n = Math.abs(n);
     return reverseDigitsHelper(n)
 }
+
+// Q13
+const productOfDigits = (n) => {
+    n = Math.abs(n);
+    if (n < 10) return n;
+    return (n % 10) * productOfDigits(Math.floor(n / 10));
+}
+
+// Q14
+const fib1 = (n) => {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return fib1(n - 1) + fib1(n - 2);
+}
+const FibonacciSum = (n) => {
+    n = Math.abs(n);
+    return fib(n) + fibonacciSum(n - 1);
+}
