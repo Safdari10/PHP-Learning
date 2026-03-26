@@ -104,3 +104,13 @@ const FibonacciSum = (n) => {
     n = Math.abs(n);
     return fib(n) + fibonacciSum(n - 1);
 }
+
+// Q15
+const fact = (n) => {
+    if (n <= 1) return 1;
+    return n * fact(n - 1);
+}
+const factorialSum = (n) => {
+    n = Math.abs(n);
+    return fact(n) + factorialSum(n - 1);
+}
