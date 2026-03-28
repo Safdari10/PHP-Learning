@@ -27,4 +27,4 @@ const firstNonRepeat = (str) => {
     }
     return null;
 }
-console.log(firstNonRepeat('aabbcdefff'));
+
