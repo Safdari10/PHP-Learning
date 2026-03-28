@@ -77,18 +77,17 @@ const isAnagram1 = (str1, str2) => {
 
 const isAnagram2 = (str1, str2) => {
     if (str1.length !== str2.length) return false;
-    let map1 = new Map();
+    let map = new Map();
 
     for (let char of str1.toLowerCase()) {
-        map1.set(char, (map1.get(char) ?? 0) + 1);
+        map.set(char, (map.get(char) ?? 0) + 1);
     }
 
     for (let char of str2.toLowerCase()) {
-        if (!map1.has(char) || map1.get(char) === 0) {
+        if (!map.has(char) || map.get(char) === 0) {
             return false;
         }
-        map1.set(char, map1.get(char) - 1)
+        map.set(char, map.get(char) - 1);
     }
     return true;
 }
-
