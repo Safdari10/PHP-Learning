@@ -109,3 +109,27 @@ const lengthOfLongestSubstring = (str) => {
     }
     return maxLen;
 }
+
+
+const characterReplacement = (str, k) => {
+    let map = new Map();
+    let start = 0;
+    let maxLen = 0;
+    let maxCount = 0;
+
+    for (let end = 0; end < str.length; end++) {
+        let char = str[end];
+
+        map.set(char, (map.get(char) ?? 0) + 1);
+        maxCount = Math.max(maxCount, map.get(char))
+
+        while ((end - start + 1) - maxCount > k) {
+            map.set(str[start], map.get(str[start]) - 1);
+            start++
+        }
+        maxLen = Math.max(maxLen, end - start + 1);
+    }
+    return maxLen;
+}
+
+console.log(characterReplacement("AAABABBA", 1));
