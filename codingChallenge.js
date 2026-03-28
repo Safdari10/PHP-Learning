@@ -29,13 +29,27 @@ const firstNonRepeat = (str) => {
 }
 
 // Problem 3
-const twoSum = (arr, target) => {
+const twoSum2 = (arr, target) => {
     for (let i = 0; i < arr.length; i++) {
         for (let j = i + 1; j < arr.length; j++) {
             if (arr[i] + arr[j] === target) {
                 return [i, j]
             }
         }
+    }
+    return null;
+}
+// optimal solution
+const twoSum = (arr, target) => {
+    let map = new Map();
+
+    for (let i = 0; i < arr.length; i++) {
+        let needed = target - arr[i];
+
+        if (map.has(needed)) {
+            return [map.get(needed), i]
+        }
+        map.set(arr[i], i);
     }
     return null;
 }
