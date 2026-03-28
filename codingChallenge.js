@@ -91,3 +91,21 @@ const isAnagram2 = (str1, str2) => {
     }
     return true;
 }
+
+// Problem 6
+const lengthOfLongestSubstring = (str) => {
+    let chars = str.toLowerCase().split('');
+    let seen = new Set();
+    let start = 0;
+    let maxLen = 0;
+
+    for (let end = 0; end < chars.length; end++) {
+        while (seen.has(chars[end])) {
+            seen.delete(chars[start]);
+            start++;
+        }
+        seen.add(chars[end]);
+        maxLen = Math.max(maxLen, end - start + 1)
+    }
+    return maxLen;
+}
