@@ -54,3 +54,15 @@ const twoSum = (arr, target) => {
     return null;
 }
 
+// Problem 4
+const containsDuplicate = (arr) => {
+    let seen = new Set();
+
+    for (let num of arr) {
+        if (seen.has(num)) {
+            return true;
+        }
+        seen.add(num);
+    }
+    return false;
+}
