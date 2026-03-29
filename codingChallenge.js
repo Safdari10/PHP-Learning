@@ -110,7 +110,7 @@ const lengthOfLongestSubstring = (str) => {
     return maxLen;
 }
 
-
+// Problem 7
 const characterReplacement = (str, k) => {
     let map = new Map();
     let start = 0;
@@ -132,4 +132,23 @@ const characterReplacement = (str, k) => {
     return maxLen;
 }
 
-console.log(characterReplacement("AAABABBA", 1));
+// Problem 8
+const longestSubarray = (arr, k) => {
+    let start = 0;
+    let maxLen = 0;
+    let currentSum = 0;
+
+
+    for (let end = 0; end < arr.length; end++) {
+        currentSum += arr[end];
+
+        while (currentSum > k) {
+            currentSum -= arr[start];
+            start++
+        }
+        maxLen = Math.max(maxLen, end - start + 1);
+    }
+    return maxLen
+}
+
+console.log(longestSubarray([1,2,3,4,5], 9));
