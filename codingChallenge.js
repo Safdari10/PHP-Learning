@@ -151,4 +151,22 @@ const longestSubarray = (arr, k) => {
     return maxLen
 }
 
-console.log(longestSubarray([1,2,3,4,5], 9));
+// Problem 9
+const subarraySum = (arr, k) => {
+    let map = new Map();
+    map.set(0 , 1);
+    let currentSum = 0;
+    let count = 0;
+
+    for (let num of arr) {
+        currentSum += num;
+
+        if (map.has(currentSum - k)) {
+            count += map.get(currentSum - k);
+        }
+
+        map.set(currentSum, (map.get(currentSum) ?? 0) + 1)
+    }
+    return count;
+}
+
