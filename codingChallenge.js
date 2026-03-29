@@ -170,3 +170,46 @@ const subarraySum = (arr, k) => {
     return count;
 }
 
+// Problem 10
+const countSubarraysSum = (arr) => {
+    let map = new Map();
+    map.set(0, 1);
+    let currentSum = 0;
+    let count = 0;
+
+
+    for (let num of arr) {
+        currentSum += num
+
+        if (map.has(currentSum)) {
+            count += map.get(currentSum);
+        }
+
+        map.set(currentSum, (map.get(currentSum) ?? 0) + 1);
+    }
+    return count;
+}
+
+
+
+// Problem 11
+const longestSubarraySum = (arr, k) => {
+   let map = new Map();
+   map.set(0 , 1);
+
+   let currentSum = 0;
+   let maxLen = 0;
+
+   for (let i = 0; i < arr.length; i++) {
+       currentSum += arr[i];
+
+       if (map.has(currentSum - k)) {
+           let length = i - map.get(currentSum - k)
+           maxLen = Math.max(maxLen, length);
+       }
+       if (!map.has(currentSum)) {
+           map.set(currentSum, i)
+       }
+   }
+   return maxLen;
+}
