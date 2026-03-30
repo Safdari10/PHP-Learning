@@ -213,3 +213,29 @@ const longestSubarraySum = (arr, k) => {
    }
    return maxLen;
 }
+
+// Problem 12
+const maxSubArrayLen = (arr, k) => {
+    let map = new Map();
+    map.set(0 , -1);
+
+    let currentSum = 0;
+    let maxLen = 0;
+
+
+    for (let i = 0; i < arr.length; i++) {
+        currentSum += arr[i];
+
+        if (map.has(currentSum - k)) {
+            if (map.get(currentSum - k)) {
+                let length = i - map.get(currentSum - k)
+                maxLen = Math.max(maxLen, length )
+            }
+        }
+        if (!map.has(currentSum))
+        map.set(currentSum, i);
+
+    }
+    return maxLen;
+}
+
