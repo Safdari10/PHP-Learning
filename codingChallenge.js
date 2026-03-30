@@ -239,3 +239,28 @@ const maxSubArrayLen = (arr, k) => {
     return maxLen;
 }
 
+// Problem 13
+const checkSubarraySum = (arr, k) => {
+   let map = new Map();
+   map.set(0, -1);
+
+   let currentSum = 0;
+
+   for (let i= 0; i < arr.length; i++) {
+       currentSum += arr[i]
+       let remainder = currentSum % k;
+
+       if (map.has(remainder)) {
+           let prevIndex = map.get(remainder);
+
+           if (i - prevIndex >= 2) {
+               return true;
+           }
+       } else {
+           map.set(remainder, i)
+       }
+   }
+   return false;
+}
+
+console.log(checkSubarraySum([23,2,8,1,3,7], 6))
