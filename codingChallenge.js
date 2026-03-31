@@ -276,6 +276,9 @@ const subarraysDivByK = (arr, k) => {
 
         let remainder = currentSum % k;
 
+        // turn negatives remainders to positive equivalent
+        remainder = ((remainder) + k) % k;
+
         if (map.has(remainder)) {
            count += map.get(remainder)
         }
@@ -285,3 +288,25 @@ const subarraysDivByK = (arr, k) => {
 }
 
 console.log(subarraysDivByK([4,5,0,-2,-3,1], 5));
+
+// Problem 14
+const findMaxLength = (arr) => {
+    let map = new Map();
+    map.set(0, -1);
+
+    let currentSum = 0;
+    let maxLen = 0
+
+    for (let i = 0; i < arr.length; i++) {
+        currentSum += arr[i] === 0 ? -1 : 1
+
+        if (map.has(currentSum)) {
+            let length = i - map.get(currentSum)
+            maxLen = Math.max(maxLen, length)
+        } else {
+            map.set(currentSum, i);
+        }
+    }
+    return maxLen;
+}
+console.log(findMaxLength([0,1,0,1,1,0,]));
