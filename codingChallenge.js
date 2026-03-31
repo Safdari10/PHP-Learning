@@ -263,4 +263,25 @@ const checkSubarraySum = (arr, k) => {
    return false;
 }
 
-console.log(checkSubarraySum([23,2,8,1,3,7], 6))
+// problem 14
+const subarraysDivByK = (arr, k) => {
+    let map = new Map();
+    map.set(0 , 1);
+
+    let currentSum = 0;
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        currentSum += arr[i];
+
+        let remainder = currentSum % k;
+
+        if (map.has(remainder)) {
+           count += map.get(remainder)
+        }
+        map.set(remainder, (map.get(remainder) ?? 0) + 1);
+    }
+    return count;
+}
+
+console.log(subarraysDivByK([4,5,0,-2,-3,1], 5));
