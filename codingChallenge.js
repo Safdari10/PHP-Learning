@@ -310,3 +310,25 @@ const findMaxLength = (arr) => {
     return maxLen;
 }
 console.log(findMaxLength([0,1,0,1,1,0,]));
+
+// Problem 15
+const numSubarraysWithSum = (arr, k) => {
+    let map1 = new Map();
+    map1.set(0, 1);
+
+    let currentSum = 0;
+    let count = 0;
+
+    for (let num of arr) {
+        currentSum += num;
+
+        if (map1.has(currentSum - k)) {
+            count += map1.get(currentSum - k)
+        }
+        map1.set(currentSum, (map1.get(currentSum) ?? 0) + 1);
+    }
+    return count;
+}
+
+console.log(numSubarraysWithSum([1,0,1,0,1], 2))
+
