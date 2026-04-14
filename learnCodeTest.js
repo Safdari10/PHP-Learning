@@ -56,3 +56,18 @@ const countCharacters = (str) => {
     }
     return counts;
 }
+
+// Question 8:
+const removeDuplicates = (arr) => {
+    const seen = new Set();
+    let result = []
+
+    for (let num of arr) {
+        if (!seen.has(num)) {
+            seen.add(num);
+            result.push(num);
+        }
+        seen.add(num);
+    }
+    return result;
+}
