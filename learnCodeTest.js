@@ -46,3 +46,13 @@ const countOccurrences = (arr, target) => {
     }
     return count;
 }
+
+// Question 7:
+const countCharacters = (str) => {
+    const counts = {};
+
+    for (let char of str) {
+        counts[char] = (counts[char] ?? 0) + 1;
+    }
+    return counts;
+}
