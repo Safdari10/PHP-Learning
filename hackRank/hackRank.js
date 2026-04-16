@@ -53,3 +53,19 @@ function timeConversion(s) {
     return String(Number(hour) + 12) + rest;
   }
 }
+
+// question 4:
+function matchingStrings(strings, queries) {
+  let freq = {};
+  let result = [];
+
+  for (let str of strings) {
+    freq[str] = (freq[str] ?? 0) + 1;
+  }
+
+  for (let query of queries) {
+    result.push(freq[query] ?? 0);
+  }
+
+  return result;
+}
