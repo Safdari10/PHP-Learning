@@ -84,3 +84,12 @@ function lonelyinteger(a) {
     }
   }
 }
+
+function lonelyinteger1(a) {
+  let result = 0;
+
+  for (let n of a) {
+    result ^= n;
+  }
+  return result;
+}
