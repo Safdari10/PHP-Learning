@@ -34,3 +34,22 @@ function miniMaxSum(arr) {
 
   console.log(total - max + " " + (total - min));
 }
+
+// question 3:
+function timeConversion(s) {
+  let hour = s.slice(0, 2);
+  let rest = s.slice(2, 8);
+  let period = s.slice(8);
+
+  if (period === "AM") {
+    if (hour === "12") {
+      return "00" + rest;
+    }
+    return hour + rest;
+  } else {
+    if (hour === "12") {
+      return hour + rest;
+    }
+    return String(Number(hour) + 12) + rest;
+  }
+}
