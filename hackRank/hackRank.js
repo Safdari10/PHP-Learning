@@ -18,3 +18,19 @@ function plusMinus(arr) {
   console.log((negative / arr.length).toFixed(6));
   console.log((zero / arr.length).toFixed(6));
 }
+
+// question 2:
+function miniMaxSum(arr) {
+  let total = 0;
+  let min = arr[0];
+  let max = arr[0];
+
+  for (let num of arr) {
+    total += num;
+
+    if (num < min) min = num;
+    if (num > max) max = num;
+  }
+
+  console.log(total - max + " " + (total - min));
+}
