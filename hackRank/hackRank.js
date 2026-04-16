@@ -69,3 +69,18 @@ function matchingStrings(strings, queries) {
 
   return result;
 }
+
+// question 5:
+function lonelyinteger(a) {
+  let freq = {};
+
+  for (let n of a) {
+    freq[n] = (freq[n] ?? 0) + 1;
+  }
+
+  for (let key in freq) {
+    if (freq[key] === 1) {
+      return Number(key);
+    }
+  }
+}
