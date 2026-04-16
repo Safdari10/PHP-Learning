@@ -85,6 +85,7 @@ function lonelyinteger(a) {
   }
 }
 
+// XOR solution: XOR removes pairs of indentical numbers (or even number of times), leaving only the unique number at the end.
 function lonelyinteger1(a) {
   let result = 0;
 
