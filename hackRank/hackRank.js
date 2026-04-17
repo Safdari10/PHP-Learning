@@ -163,10 +163,11 @@ function countingSort2(arr) {
   return count;
 }
 
-
 // Question 8:
 function pangrams(s) {
-  let alphabet = Array.from ({ length: 26}, (_, i) => String.fromCharCode(97 + i))
+  let alphabet = Array.from({ length: 26 }, (_, i) =>
+    String.fromCharCode(97 + i),
+  );
   let lowerCases = s.toLowerCase();
 
   for (let letter of alphabet) {
@@ -175,4 +176,18 @@ function pangrams(s) {
     }
   }
   return "pangram";
+}
+
+// we can use a more efficient approach by checking off letters as we find them
+// instead of checking the whole string for each letter in the alphabet.
+function pangrams1(s) {
+  let letters = new Set();
+
+  for (let char of s.toLowerCase()) {
+    if (char >= "a" && char <= "z") {
+      letters.add(char);
+      if (letters.size === 26) return "pangram"; // early exit if we found all letters
+    }
+  }
+  return "not pangram";
 }
