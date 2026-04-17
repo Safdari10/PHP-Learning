@@ -110,3 +110,17 @@ function flippinBits1(n) {
   // >>> 0 converts result to unsigned 32-bit number
   return ~n >>> 0;
 }
+
+// question 7:
+function diangonalDifference(arr) {
+  let n = arr.length;
+  let primaryDiagonal = 0;
+  let secondaryDiagonal = 0;
+
+  for (let i = 0; i < n; i++) {
+    primaryDiagonal += arr[i][i];
+    secondaryDiagonal += arr[i][n - 1 - i];
+  }
+
+  return Math.abs(primaryDiagonal - secondaryDiagonal);
+}
