@@ -151,3 +151,14 @@ function countingSort1(arr) {
 
   return count;
 }
+
+// we use frequency map to count frequencies when range is large or uknown or we have negative numers.
+function countingSort2(arr) {
+  let count = {};
+
+  for (let num of arr) {
+    count[num] = (count[num] ?? 0) + 1;
+  }
+
+  return count;
+}
