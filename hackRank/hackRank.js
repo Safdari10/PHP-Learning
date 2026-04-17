@@ -137,4 +137,17 @@ function countingSort(arr) {
 }
 
 // above code tests if i know when to use array to store frequencies instead of object,
-// which is more efficient in this case since we know the range of numbers is from 0 to 99.
+// which is more efficient in this case since we know the range of numbers is from 0 to 99 and positive integers.
+// for larger/unknown range, we would use an object to store frequencies instead of an array.
+
+// when using array we don't have to set to 100 elements to 0, we just need know that Size = max value in array + 1
+function countingSort1(arr) {
+  let max = Math.max(...arr);
+  let count = new Array(max + 1).fill(0);
+
+  for (let num of arr) {
+    count[num]++;
+  }
+
+  return count;
+}
