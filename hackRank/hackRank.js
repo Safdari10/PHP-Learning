@@ -103,3 +103,10 @@ function flippinBits(n) {
   // so the max is basically 2 ** 32 (total number values in 32 bits) - 1 (which gives the 11111111111111111111111111111111);
   return n ** 32 - 1 - n;
 }
+
+// use bitwise operator which is more better and cleaner
+function flippinBits1(n) {
+  // ~n flips all bits
+  // >>> 0 converts result to unsigned 32-bit number
+  return ~n >>> 0;
+}
