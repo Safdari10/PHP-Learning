@@ -162,3 +162,17 @@ function countingSort2(arr) {
 
   return count;
 }
+
+
+// Question 8:
+function pangrams(s) {
+  let alphabet = Array.from ({ length: 26}, (_, i) => String.fromCharCode(97 + i))
+  let lowerCases = s.toLowerCase();
+
+  for (let letter of alphabet) {
+    if (!lowerCases.includes(letter)) {
+      return "not pangram";
+    }
+  }
+  return "pangram";
+}
