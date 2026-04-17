@@ -94,3 +94,12 @@ function lonelyinteger1(a) {
   }
   return result;
 }
+
+// Question 6:
+
+function flippinBits(n) {
+  // instead of manually flipping bits, we use idea that the largest 32-bit number is 4294967295 which is basically 11111111111111111111111111111111
+  // so flipping bits = substract from max
+  // so the max is basically 2 ** 32 (total number values in 32 bits) - 1 (which gives the 11111111111111111111111111111111);
+  return n ** 32 - 1 - n;
+}
