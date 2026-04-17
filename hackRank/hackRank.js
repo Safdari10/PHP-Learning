@@ -124,3 +124,17 @@ function diangonalDifference(arr) {
 
   return Math.abs(primaryDiagonal - secondaryDiagonal);
 }
+
+// question 8:
+function countingSort(arr) {
+  let count = new Array(100).fill(0);
+
+  for (let num of arr) {
+    count[num]++;
+  }
+
+  return count;
+}
+
+// above code tests if i know when to use array to store frequencies instead of object,
+// which is more efficient in this case since we know the range of numbers is from 0 to 99.
