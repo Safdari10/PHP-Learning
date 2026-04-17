@@ -112,7 +112,7 @@ function flippinBits1(n) {
 }
 
 // question 7:
-function diangonalDifference(arr) {
+function diagonalDifference(arr) {
   let n = arr.length;
   let primaryDiagonal = 0;
   let secondaryDiagonal = 0;
@@ -190,4 +190,19 @@ function pangrams1(s) {
     }
   }
   return "not pangram";
+}
+
+// Question 9:
+function twoArrays(k, A, B) {
+  // this is called the greedy approach, we sort A in ascending order and B in descending order to maximize the sum of pairs.
+  A.sort((a, b) => a - b); // sort A in ascending order
+  B.sort((a, b) => b - a); // sort B in descending order
+
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] + B[i] < k) {
+      return "NO";
+    }
+  }
+
+  return "YES";
 }
