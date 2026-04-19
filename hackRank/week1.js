@@ -272,7 +272,7 @@ function findMedian(arr) {
 
 // Question 13:
 function flippingMatrix(matrix) {
-  let n = matrix.length;
+  let n = matrix.length / 2; // since the matrix is 2n x 2n, we divide by 2 to get n
   let sum = 0;
 
   for (let i = 0; i < n; i++) {
