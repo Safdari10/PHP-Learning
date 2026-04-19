@@ -232,7 +232,7 @@ function birthdays(s, d, m) {
   for (let i = 0; i < m; i++) {
     sum += s[i];
   }
-  
+
   if (sum === d) count++;
 
   // slide the window through the array
@@ -243,4 +243,15 @@ function birthdays(s, d, m) {
   }
 
   return count;
+}
+
+// Question 11:
+function strings_xor(s, t) {
+  let result = "";
+
+  for (let i = 0; i < s.length; i++) {
+    result += s[i] === t[i] ? "o" : "1";
+  }
+
+  return result;
 }
