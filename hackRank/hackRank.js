@@ -207,7 +207,6 @@ function twoArrays(k, A, B) {
   return "YES";
 }
 
-
 // Question 10:
 function birthday(s, d, m) {
   let count = 0;
@@ -221,5 +220,29 @@ function birthday(s, d, m) {
       count++;
     }
   }
+  return count;
+}
+
+// we can optimize the above code by using a sliding window approach to avoid recalculating the sum for each segment.
+function birthdays(s, d, m) {
+  let count = 0;
+  let sum = 0;
+
+  // calculate the sum of the first window
+  for (let i = 0; i < m; i++) {
+    sum += s[i];
+  }
+  if (sum === d) {
+    count++;
+  }
+
+  // slide the window through the array
+  for (let i = m; i < s.length; i++) {
+    sum += s[i] - s[i - m]; // add the new element and remove the old element from the sum
+    if (sum === d) {
+      count++;
+    }
+  }
+
   return count;
 }
