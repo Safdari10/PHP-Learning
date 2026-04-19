@@ -255,3 +255,17 @@ function strings_xor(s, t) {
 
   return result;
 }
+
+// Question 12:
+function findMedian(arr) {
+  arr.sort((a, b) => a - b);
+
+  let n = arr.length;
+  let mid = Math.floor(n / 2);
+
+  if (n % 2 === 0) {
+    return (arr[mid - 1] + arr[mid]) / 2;
+  } else {
+    return arr[mid];
+  }
+}
