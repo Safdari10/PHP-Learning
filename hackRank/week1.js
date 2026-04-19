@@ -269,3 +269,25 @@ function findMedian(arr) {
     return arr[mid];
   }
 }
+
+// Question 13:
+function flippingMatrix(matrix) {
+  let n = matrix.length;
+  let sum = 0;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      // for each cell in the top-left quadrant, we consider the 4 possible values it can take after flips and take the maximum
+      let maxVal = Math.max(
+        matrix[i][j],
+        matrix[i][2 * n - 1 - j], // flip column
+        matrix[2 * n - 1 - i][j], // flip row
+        matrix[2 * n - 1 - i][2 * n - 1 - j], // flip both row and column
+      );
+
+      sum += maxVal;
+    }
+  }
+
+  return sum;
+}
