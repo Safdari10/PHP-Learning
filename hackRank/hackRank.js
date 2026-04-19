@@ -232,16 +232,14 @@ function birthdays(s, d, m) {
   for (let i = 0; i < m; i++) {
     sum += s[i];
   }
-  if (sum === d) {
-    count++;
-  }
+  
+  if (sum === d) count++;
 
   // slide the window through the array
   for (let i = m; i < s.length; i++) {
     sum += s[i] - s[i - m]; // add the new element and remove the old element from the sum
-    if (sum === d) {
-      count++;
-    }
+
+    if (sum === d) count++;
   }
 
   return count;
