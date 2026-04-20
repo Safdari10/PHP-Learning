@@ -14,3 +14,20 @@ function sockMerchant(n, arr) {
 
   return pairs;
 }
+
+// alternative solution using a Set to track unpaired socks
+function sockMerchant1(n, arr) {
+  let seen = new Set();
+  let pairs = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (seen.has(arr[i])) {
+      pairs++;
+      seen.delete(arr[i]);
+    } else {
+      seen.add(arr[i]);
+    }
+  }
+
+  return pairs;
+}
