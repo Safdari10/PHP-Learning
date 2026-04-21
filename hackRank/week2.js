@@ -67,3 +67,19 @@ function zigZagSequence1(a, n) {
     right--;
   }
 }
+
+// Question 3:
+function pageCount(n, p) {
+  let fromFront = Math.floor(p / 2); // Calculate the number of page turns from the front since each page turn flips 2 pages
+
+  // let fromBack = Math.floor((n - p) / 2); // Calculate the number of page turns from the back by finding how many pages are left after page p and dividing by 2,
+  // but this fails when n is even and p is odd because it doesn't account for the fact that the last page may be on the left side of the book
+
+  // let fromBack = Math.floor((n - p + 1) / 2); // Adjust the calculation for the back by adding 1 to account for the last page being on the left side when n is even and p is odd,
+  // but this also fail because it over compensates when n is odd and p is even because it adds an extra page turn that isn't needed
+
+  let fromBack = Math.floor(n / 2 - fromFront); // Alternatively, we can calculate from the back by subtracting the front count from the total number of page turns in the book,
+  // which is n/2 since each page turn flips 2 pages, this way we don't have to worry about the even/odd issue with n and p
+
+  return Math.min(fromFront, fromBack); // Return the minimum of the two counts to find the least number of page turns needed
+}
