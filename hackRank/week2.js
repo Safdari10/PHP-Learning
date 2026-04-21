@@ -83,3 +83,8 @@ function pageCount(n, p) {
 
   return Math.min(fromFront, fromBack); // Return the minimum of the two counts to find the least number of page turns needed
 }
+
+// we can simply above
+function pageCount1(n, p) {
+  return Math.min(Math.floor(p / 2), Math.floor(n / 2 - Math.floor(p / 2)));
+}
