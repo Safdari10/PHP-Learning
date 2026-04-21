@@ -51,3 +51,19 @@ function zigZagSequence(a, n) {
     end--;
   }
 }
+
+// we can do the swap and reverse without temp variable by using destructuring assignment in JavaScript
+function zigZagSequence1(a, n) {
+  a.sort((a, b) => a - b);
+  let mid = Math.floor(n / 2);
+  [a[mid], (a[n - 1] = [a[n - 1], a[mid]])]; // Swap the middle element with the last element using destructuring assignment
+
+  // order right side
+  let left = mid + 1;
+  let right = n - 2;
+  while (left < right) {
+    [a[left], a[right]] = [a[right], a[left]]; // Swap the left and right elements using destructuring assignment
+    left++;
+    right--;
+  }
+}
