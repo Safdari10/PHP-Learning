@@ -88,3 +88,12 @@ function pageCount(n, p) {
 function pageCount1(n, p) {
   return Math.min(Math.floor(p / 2), Math.floor(n / 2 - Math.floor(p / 2)));
 }
+
+// Question 4:
+function towerBreakers(n, m) {
+  if (m === 1 || n % 2 === 0) {
+    return 2; // If all towers are already of height 1, player 2 wins by default since player 1 has no valid moves, or if there are an even number of towers, player 2 can always mirror player 1's moves to maintain an even number of towers and win
+  } else {
+    return 1; // If there are an odd number of towers and they are taller than 1, player 1 can always win by reducing the height of one tower to 1 on the first move, leaving an even number of towers for player 2, and then mirroring player 2's moves to maintain an even number of towers and win
+  }
+}
