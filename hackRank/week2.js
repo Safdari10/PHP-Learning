@@ -102,3 +102,35 @@ function towerBreakers(n, m) {
 function towerBreakers1(n, m) {
   return m === 1 || n % 2 === 0 ? 2 : 1;
 }
+
+// Question 5:
+function ceasarCipher(s, k) {
+  let result = "";
+  k = k % 26; // We optimize the shift by using modulo 26 since shifting by 26 or any multiple of 26 results in the same letter
+
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+
+    // Check if character is a letter
+    if (char >= "a" && char <= "z") {
+      // Shift lowercase letter
+      let newCode = char.charCodeAt(0) + k;
+      if (newCOde > "z".charCodeAt(0)) {
+        newCode -= 26; // Wrap around;
+      }
+      result += String.fromCharCode(newCode);
+    } else if (char >= "A" && char <= "Z") {
+      // Shift uppercase letter
+      let newCode = char.charCodeAt(0) + k;
+      if (newCode > "Z".charCodeAt(0)) {
+        newCode -= 26; // Wrap around
+      }
+      result += String.fromCharCode(newCode);
+    } else {
+      // Non-letters remain unchanged
+      result += char;
+    }
+  }
+
+  return result;
+}
