@@ -97,3 +97,8 @@ function towerBreakers(n, m) {
     return 1; // If there are an odd number of towers and they are taller than 1, player 1 can always win by reducing the height of one tower to 1 on the first move, leaving an even number of towers for player 2, and then mirroring player 2's moves to maintain an even number of towers and win
   }
 }
+
+// we can simplify the above function to a single return statement
+function towerBreakers1(n, m) {
+  return m === 1 || n % 2 === 0 ? 2 : 1;
+}
