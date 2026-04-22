@@ -134,3 +134,20 @@ function ceasarCipher(s, k) {
 
   return result;
 }
+
+// we use a concise alternative for above
+function ceasarCipher1(s, k) {
+  k = k % 26;
+  return s
+    .split("")
+    .map((char) => {
+      if (char >= "a" && char <= "z") {
+        return String.fromCharCode(((char.charCodeAt(0) - 97 + k) % 26) + 97); // Shift lowercase letter and wrap around using modulo
+      }
+      if (char >= "A" && char <= "Z") {
+        return String.fromCharCode(((char.charCodeAt(0) - 65 + k) % 26) + 65);
+      }
+      return char; // Non-letters remain unchanged
+    })
+    .join("");
+}
