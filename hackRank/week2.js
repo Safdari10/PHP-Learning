@@ -151,3 +151,16 @@ function ceasarCipher1(s, k) {
     })
     .join("");
 }
+
+// Question 6:
+function maxMin(k, arr) {
+  arr.sort((a, b) => a - b);
+  let minUnfairness = Infinity;
+
+  for (let i = 0; i <= arr.length - k; i++) {
+    let unfairness = arr[i + k - 1] - arr[i]; // Calculate the unfairness for the current window of size k, -1 because the index starts at 0
+    minUnfairness = Math.min(minUnfairness, unfairness); // Update the minimum unfairness if the current unfairness is smaller
+  }
+
+  return minUnfairness;
+}
