@@ -164,3 +164,22 @@ function maxMin(k, arr) {
 
   return minUnfairness;
 }
+
+// Question 7:
+function dynamicArray(n, queries) {
+  let seqList = Array.from({ length: n }, () => []); // Create an array of n empty sequences
+  let lastAnswer = 0;
+  let results = [];
+
+  for (let [type, x, y] of queries) {
+    let seqIndex = (x ^ lastAnswer) % n; // Calculate the index of the sequence to operate on using XOR and modulo
+
+    if (type === 1) {
+      seqList[seqIndex].push(y); // Append y to the sequence at seqIndex
+    } else if (type === 2) {
+      lastAnswer = seqList[seqIndex][y % seqList[seqIndex].length]; // Update lastAnswer to the value at index y % size of the sequence at seqIndex
+      results.push(lastAnswer);
+    }
+  }
+  return results;
+}
