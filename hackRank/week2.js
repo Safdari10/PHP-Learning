@@ -183,3 +183,22 @@ function dynamicArray(n, queries) {
   }
   return results;
 }
+
+// Question 8:
+function gridChallenge(grid) {
+  // Sort each row of the grid
+  for (let i = 0; i < grid.length; i++) {
+    grid[i] = grid[i].split("").sort().join("");
+  }
+
+  // Check if columns are sorted
+  for (let col = 0; col < grid[0].length; col++) {
+    for (let row = 1; row < grid.length; row++) {
+      if (grid[row][col] < grid[row - 1][col]) {
+        // Compare the current cell with the cell above it in the same column
+        return "NO"; // If any column is not sorted, return "NO"
+      }
+    }
+  }
+  return "YES"; // If all columns are sorted, return "YES"
+}
