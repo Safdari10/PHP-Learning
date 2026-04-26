@@ -207,7 +207,7 @@ function gridChallenge(grid) {
 function findPrimeDates(start, end) {
   // Helper: check leap year
   function isLeap(year) {
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
   }
 
   // Helper: days in each month
@@ -241,7 +241,7 @@ function findPrimeDates(start, end) {
     (y1 === y2 && m1 < m2) ||
     (y1 === y2 && m1 === m2 && d1 <= d2)
   ) {
-    // Build number by concatenation (no leadying zeroes)
+    // Build number by concatenation (no leading zeros)
     let num = Number("" + d1 + m1 + y1);
 
     // Check lucky condition
@@ -256,11 +256,12 @@ function findPrimeDates(start, end) {
       d1 = 1;
       m1++;
     }
+
+    if (m1 > 12) {
+      m1 = 1;
+      y1++;
+    }
   }
 
-  if (m1 > 12) {
-    m1 = 1;
-    y1++;
-  }
   return count;
 }
