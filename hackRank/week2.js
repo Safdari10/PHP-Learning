@@ -202,3 +202,65 @@ function gridChallenge(grid) {
   }
   return "YES"; // If all columns are sorted, return "YES"
 }
+
+// Question 9:
+function findPrimeDates(start, end) {
+  // Helper: check leap year
+  function isLeap(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  }
+
+  // Helper: days in each month
+  function getDaysInMonth(month, year) {
+    const days = [
+      31,
+      isLeap(year) ? 29 : 28,
+      31,
+      30,
+      31,
+      30,
+      31,
+      31,
+      30,
+      31,
+      30,
+      31,
+    ];
+    return days[month - 1];
+  }
+
+  // Parse dates
+  let [d1, m1, y1] = start.split("-").map(Number);
+  let [d2, m2, y2] = end.split("-").map(Number);
+
+  let count = 0;
+
+  // Loop until we pass end date
+  while (
+    y1 < y2 ||
+    (y1 === y2 && m1 < m2) ||
+    (y1 === y2 && m1 === m2 && d1 <= d2)
+  ) {
+    // Build number by concatenation (no leadying zeroes)
+    let num = Number("" + d1 + m1 + y1);
+
+    // Check lucky condition
+    if (num % 4 === 0 || num % 7 === 0) {
+      count++;
+    }
+
+    // Move to next day
+    d1++;
+
+    if (d1 > getDaysInMonth(m1, y1)) {
+      d1 = 1;
+      m1++;
+    }
+  }
+
+  if (m1 > 12) {
+    m1 = 1;
+    y1++;
+  }
+  return count;
+}
