@@ -25,3 +25,16 @@ function findMin(arr: number[]): number {
 
   return min;
 }
+
+// Problem 3:
+function countGreaterThanFive(arr: number[]): number {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 5) {
+      count++;
+    }
+  }
+
+  return count;
+}
