@@ -66,3 +66,15 @@ function findLargestEvenNumber(arr: number[]): number | null {
 
   return largestEven;
 }
+
+// Problem 6:
+function countOddGreaterThanTen(arr: number[]): number {
+  let count = 0;
+
+  for (let num of arr) {
+    if (num % 2 !== 0 && num > 10) {
+      count++;
+    }
+  }
+  return count;
+}
