@@ -92,3 +92,18 @@ function findIndexOfMax(arr: number[]): number {
 
   return maxIndex;
 }
+
+// Problem 8:
+function findIndexOfLargestOdd(arr: number[]): number | null {
+  let maxIndex: number | null = null;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      if (maxIndex === null || arr[i] > arr[maxIndex]) {
+        maxIndex = i;
+      }
+    }
+  }
+
+  return maxIndex;
+}
