@@ -51,3 +51,18 @@ function sumOfEvenNumbers(arr: number[]): number {
 
   return sum;
 }
+
+// Problem 5:
+function findLargestEvenNumber(arr: number[]): number | null {
+  let largestEven = null;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      if (largestEven === null || arr[i] > largestEven) {
+        largestEven = arr[i];
+      }
+    }
+  }
+
+  return largestEven;
+}
