@@ -76,5 +76,19 @@ function countOddGreaterThanTen(arr: number[]): number {
       count++;
     }
   }
+
   return count;
+}
+
+// Problem 7:
+function findIndexOfMax(arr: number[]): number {
+  let maxIndex = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[maxIndex]) {
+      maxIndex = i;
+    }
+  }
+
+  return maxIndex;
 }
