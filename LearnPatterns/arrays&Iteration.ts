@@ -122,3 +122,18 @@ function hasDuplicate(arr: number[]): boolean {
 
   return false;
 }
+
+// Problem 10:
+function countFrequency(arr: number[]): Record<number, number> {
+  const freq: Record<number, number> = {};
+
+  for (const num of arr) {
+    if (freq[num]) {
+      freq[num]++;
+    } else {
+      freq[num] = 1;
+    }
+  }
+
+  return freq;
+}
