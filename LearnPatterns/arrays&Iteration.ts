@@ -137,3 +137,13 @@ function countFrequency(arr: number[]): Record<number, number> {
 
   return freq;
 }
+
+function countFrequency1(arr: number[]): Record<number, number> {
+  const freq: Record<number, number> = {};
+
+  for (const num of arr) {
+    freq[num] = (freq[num] || 0) + 1;
+  }
+
+  return freq;
+}
