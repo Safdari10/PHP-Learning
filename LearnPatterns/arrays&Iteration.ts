@@ -107,3 +107,18 @@ function findIndexOfLargestOdd(arr: number[]): number | null {
 
   return maxIndex;
 }
+
+// Problem 9:
+function hasDuplicate(arr: number[]): boolean {
+  const seen = new Set<number>();
+
+  for (let num of arr) {
+    if (seen.has(num)) {
+      return true;
+    }
+
+    seen.add(num);
+  }
+
+  return false;
+}
