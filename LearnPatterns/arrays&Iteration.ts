@@ -147,3 +147,17 @@ function countFrequency1(arr: number[]): Record<number, number> {
 
   return freq;
 }
+
+// Problem 11:
+function firstDuplicate(arr: number[]): number | null {
+  const seen = new Set<number>();
+
+  for (let num of arr) {
+    if (seen.has(num)) {
+      return num;
+    }
+    seen.add(num);
+  }
+
+  return null;
+}
