@@ -161,3 +161,26 @@ function firstDuplicate(arr: number[]): number | null {
 
   return null;
 }
+
+// Problem 12:
+function isAnagram(str1: string, str2: string): boolean {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  const freq: Record<string, number> = {};
+
+  for (const char of str1) {
+    freq[char] = (freq[char] || 0) + 1;
+  }
+
+  for (const char of str2) {
+    if (!freq[char]) {
+      return false;
+    }
+
+    freq[char]--;
+  }
+
+  return true;
+}
