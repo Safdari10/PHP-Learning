@@ -184,3 +184,20 @@ function isAnagram(str1: string, str2: string): boolean {
 
   return true;
 }
+
+// Problem 13:
+function twoSum(arr: number[], target: number): number[] | null {
+  const seen = new Set<number>();
+
+  for (const num of arr) {
+    const needed = target - num;
+
+    if (seen.has(needed)) {
+      return [needed, num];
+    }
+
+    seen.add(num);
+  }
+
+  return null;
+}
