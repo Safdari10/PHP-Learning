@@ -240,3 +240,21 @@ function hasPairWithTarget(arr: number[], target: number): boolean {
 
   return false;
 }
+
+// Problem 16:
+function removeDuplicates(arr: number[]): number[] {
+  if (arr.length === 0) {
+    return [];
+  }
+
+  let uniqueIndex = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] !== arr[uniqueIndex]) {
+      uniqueIndex++;
+      arr[uniqueIndex] = arr[i];
+    }
+  }
+
+  return arr.slice(0, uniqueIndex + 1);
+}
