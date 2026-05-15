@@ -258,3 +258,17 @@ function removeDuplicates(arr: number[]): number[] {
 
   return arr.slice(0, uniqueIndex + 1);
 }
+
+// Problem 17:
+function removeNonZero(arr: number[]): number[] {
+  let write = 0;
+
+  for (let read = 0; read < arr.length; read++) {
+    if (arr[read] !== 0) {
+      arr[write] = arr[read];
+      write++;
+    }
+  }
+
+  return arr.slice(0, write);
+}
