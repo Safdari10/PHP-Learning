@@ -272,3 +272,14 @@ function removeNonZero(arr: number[]): number[] {
 
   return arr.slice(0, write);
 }
+
+// Problem 18:
+function firstNonZero(arr: number[]): number | null {
+  for (let num of arr) {
+    if (num !== 0) {
+      return num;
+    }
+  }
+
+  return null;
+}
