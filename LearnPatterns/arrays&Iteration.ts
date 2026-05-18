@@ -283,3 +283,21 @@ function firstNonZero(arr: number[]): number | null {
 
   return null;
 }
+
+// Problem 19:
+function removeAdjacentDuplicates(arr: number[]): number[] {
+  if (arr.length === 0) {
+    return [];
+  }
+
+  let write = 0;
+
+  for (let read = 1; read < arr.length; read++) {
+    if (arr[read] !== arr[write]) {
+      write++;
+      arr[write] = arr[read];
+    }
+  }
+
+  return arr.slice(0, write + 1);
+}
